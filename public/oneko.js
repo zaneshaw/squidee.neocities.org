@@ -17,8 +17,8 @@ function oneko() {
 	let chasing = false;
 
 	const nekoSpawnEl = document.getElementById("oneko-spawn");
-	let homePosX = nekoSpawnEl.offsetLeft;
-	let homePosY = nekoSpawnEl.offsetTop;
+	let homePosX = nekoSpawnEl.parentElement.offsetLeft + nekoSpawnEl.offsetLeft;
+	let homePosY = nekoSpawnEl.parentElement.offsetTop + nekoSpawnEl.offsetTop;
 
 	let nekoPosX = 32;
 	let nekoPosY = 32;

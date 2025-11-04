@@ -21,7 +21,8 @@
 
 body {
 	background-color: hsl(0, 0%, 90%);
-	background-image: url("background.jpeg"); /* https://opengameart.org/content/ceiling-tile-texture */
+	/* https://opengameart.org/content/ceiling-tile-texture */
+	background-image: url("background.jpeg");
 	background-repeat: repeat;
 	background-size: 256px;
 
@@ -34,6 +35,15 @@ body {
 	width: min-content;
 
 	visibility: hidden;
+}
+
+noscript {
+	visibility: visible;
+
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: max-content;
 }
 
 footer {

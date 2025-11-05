@@ -343,30 +343,48 @@ footer>#footer-center {
 }
 
 #settings {
-	padding: 10px;
-	flex-direction: row;
-	flex-grow: 0 !important;
+	padding: 0px;
+	flex-direction: row !important;
 	flex-basis: 0;
+	min-height: 40px;
+	gap: 0px !important;
+}
+
+#settings>.container {
+	position: relative;
+	display: flex;
+	flex-grow: 1;
+	flex-basis: 0;
+	padding: 5px;
+	justify-content: center;
 	align-items: center;
-}
-
-#settings>label {
 	cursor: url("img/cursors/cursor_pointer.png"), pointer;
-	width: fit-content;
-	display: inline-block;
-	white-space: nowrap;
-	margin-top: -2px;
 }
 
-#settings>label>b {
-	vertical-align: middle;
-	font-size: 14px;
+#settings>.container::after {
+	content: "__________";
+	background-image: url("img/error.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height: 60%;
+	position: absolute;
+	color: transparent;
+
+	opacity: 0;
+	transition-duration: 150ms;
 }
 
-#settings>label>input {
-	cursor: url("img/cursors/cursor_pointer.png"), pointer;
-	margin: 0px;
-	vertical-align: middle;
+#settings>.container:not(:has(input:checked))::after {
+	opacity: 1;
+}
+
+#settings>.container>input {
+	display: none;
+}
+
+#settings>.container>img {
+	height: 100%
 }
 
 #underwater-effect {
@@ -475,6 +493,10 @@ footer>#footer-center {
 
 	background-image: url("img/squid.png");
 	transform: rotate(-15deg);
+}
+
+.hide-scroll-buttons::-webkit-scrollbar-button {
+	display: none;
 }
 
 ::-webkit-scrollbar {

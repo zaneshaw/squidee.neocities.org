@@ -1,8 +1,13 @@
 const main = document.querySelector("main");
 const badgeSnippet = `<a href="https://squidee.dev/"><img src="https://squidee.dev/img/badges/88x31_squidee.gif"></a>`;
 
-function setMouseEffect(state) {
-	document.getElementById("underwater-effect").style.display = state ? "block" : "none";
+function applySettings(settings) {
+	document.getElementById("underwater-effect").style.display = settings["mouse_effect"] ? "block" : "none";
+	document.getElementById("squid").style.visibility = settings["squid"] ? "visible" : "hidden";
+}
+
+function saveSettings(settings) {
+	window.localStorage.setItem("settings", JSON.stringify(settings));
 }
 
 let template = `<div id="content">
@@ -13,7 +18,7 @@ let template = `<div id="content">
 			</a>
 			<div>
 				<h4>my button</h4>
-				<a class="button-88x31"><img src="https://squidee.dev/img/badges/88x31_squidee.gif" alt="squidee"></a>
+				<a class="button-88x31"><img src="img/badges/88x31_squidee.gif" alt="squidee"></a>
 				<textarea rows="3" onclick="this.select()" class="hide-scroll-buttons" style="resize: none; width: 100%;">${badgeSnippet}</textarea>
 			</div>
 			<div>
@@ -32,7 +37,8 @@ let template = `<div id="content">
 			</a>
 		</div>
 		<div class="container" id="settings">
-			<label id="mouse-effect"><input type="checkbox" /> <b>mouse effect</b></label>
+			<label class="container"><input type="checkbox" id="mouse-effect-toggle" /><img src="img/bubble.png"></label>
+			<label class="container"><input type="checkbox" id="squid-toggle" /><img src="img/squid1.png"></label>
 		</div>
 	</div>
 	<div id="center">
@@ -111,18 +117,37 @@ if (main.dataset["replaceme"] != undefined) {
 	document.body.appendChild(underwaterEffectScript);
 }
 
-// todo: change to settings json
-const mouseEffectCheckbox = document.getElementById("mouse-effect").querySelector("input");
-const mouseEffectState = window.localStorage.getItem("mouse_effect");
+const defaultSettings = {
+	mouse_effect: true,
+	squid: true,
+}
+let settings = {};
+const settingsLS = window.localStorage.getItem("settings");
+if (settingsLS == null) {
+	settings = defaultSettings;
+	saveSettings(settings);
+} else {
+	settings = JSON.parse(settingsLS);
+}
 
-mouseEffectCheckbox.checked = mouseEffectState == null ? true : mouseEffectState == "true";
+const mouseEffectCheckbox = document.getElementById("mouse-effect-toggle");
+const squidCheckbox = document.getElementById("squid-toggle");
+mouseEffectCheckbox.checked = settings["mouse_effect"];
+squidCheckbox.checked = settings["squid"];
 
 mouseEffectCheckbox.addEventListener("change", (e) => {
-	window.localStorage.setItem("mouse_effect", e.target.checked);
-	setMouseEffect(e.target.checked);
+	settings["mouse_effect"] = e.target.checked;
+	applySettings(settings);
+	saveSettings(settings);
 });
 
-setMouseEffect(mouseEffectCheckbox.checked);
+squidCheckbox.addEventListener("change", (e) => {
+	settings["squid"] = e.target.checked;
+	applySettings(settings);
+	saveSettings(settings);
+});
+
+applySettings(settings);
 
 const sleepRange = [300, 600];
 const squidEl = document.getElementById("squid");

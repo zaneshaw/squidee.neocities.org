@@ -14,7 +14,7 @@ let template = `<div id="content">
 			<div>
 				<h4>my button</h4>
 				<a class="button-88x31"><img src="https://squidee.dev/img/badges/88x31_squidee.gif" alt="squidee"></a>
-				<textarea rows="3" onclick="this.select()" class="hide-scrollbar-buttons" style="resize: none; width: 100%;">${badgeSnippet}</textarea>
+				<textarea rows="3" onclick="this.select()" class="hide-scroll-buttons" style="resize: none; width: 100%;">${badgeSnippet}</textarea>
 			</div>
 			<div>
 				<h4>sitemap</h4>
@@ -22,8 +22,14 @@ let template = `<div id="content">
 					<li><a href="index.html" class="small link">me</a></li>
 					<li><a href="stuff.html" class="small link">stuff</a></li>
 					<li><a href="playlist.html" class="small link">playlist</a></li>
+					<li><a href="updates.html" class="small link">updates</a></li>
 				</ul>
 			</div>
+			<a href="updates.html" id="whats-new">
+				<h4>what's new?</h4>
+				<b>05-11-25</b>
+				<span class="small" id="whats-new-text">a bunch of very intersting text goes here. i hope there isn't too much text.</span>
+			</a>
 		</div>
 		<div class="container" id="settings">
 			<label id="mouse-effect"><input type="checkbox" /> <b>mouse effect</b></label>

@@ -1,4 +1,5 @@
 const main = document.querySelector("main");
+const badgeSnippet = `<a href="https://squidee.dev/"><img src="https://squidee.dev/img/badges/88x31_squidee.gif"></a>`;
 
 function setMouseEffect(state) {
 	document.getElementById("underwater-effect").style.display = state ? "block" : "none";
@@ -11,22 +12,16 @@ let template = `<div id="content">
 				<img src="img/zanesquid3_small.png" alt="me with a squid hat">
 			</a>
 			<div>
-				<h4>♫ playlist</h4>
+				<h4>my button</h4>
+				<a class="button-88x31"><img src="https://squidee.dev/img/badges/88x31_squidee.gif" alt="squidee"></a>
+				<textarea rows="3" onclick="this.select()" class="hide-scrollbar-buttons" style="resize: none; width: 100%;">${badgeSnippet}</textarea>
+			</div>
+			<div>
+				<h4>sitemap</h4>
 				<ul class="unstyled-ul">
-					<li><a href="https://open.spotify.com/track/1W0hhsgQfWPumKwR5k6SAJ" target="_blank" class="small link">watching you float</a></li>
-					<li><a href="https://open.spotify.com/track/3NQvJtfgay2fjNwI5afZjs" target="_blank" class="small link">A Waking Tomorow</a></li>
-					<li><a href="https://open.spotify.com/track/4gatGAviEcd9h4cTyggtgs" target="_blank" class="small link">Mezzanine</a></li>
-					<li><a href="https://open.spotify.com/track/3n70xNuonBPREFhMyFV6bt" target="_blank" class="small link">Paralyzed</a></li>
-					<li><a href="https://open.spotify.com/track/4CD4GfHOwo5ZP4FkIMTK6j" target="_blank" class="small link">The Con</a></li>
-					<li><a href="https://open.spotify.com/track/6eu6WZglMjE5TU1WNodrdF" target="_blank" class="small link">pitching stones</a></li>
-					<li><a href="https://open.spotify.com/track/6fTH4b7b5Mvp9xxOSoDiZl" target="_blank" class="small link">Stop Pretendinng you Like Salad</a></li>
-					<li><a href="https://open.spotify.com/track/7t91UB7Swk7LxciSLEQiQU" target="_blank" class="small link">pretty thing</a></li>
-					<li><a href="https://open.spotify.com/track/03eQWXfDBSLs4ZWq4Ki4h4" target="_blank" class="small link">Claw Machine</a></li>
-					<li><a href="https://open.spotify.com/track/0CCYVn1a4xUV83NZTCrRTL" target="_blank" class="small link">an angel strikes</a></li>
-					<li><a href="https://open.spotify.com/track/34BbMQc4AFjbojU7q5p9yJ" target="_blank" class="small link">god complex</a></li>
-					<li><a href="https://open.spotify.com/track/1QMSdd43oAIzSywXO1U2hO" target="_blank" class="small link">VANISHING ACT</a></li>
-					<li><a href="https://open.spotify.com/track/2zsfWeC0hlhYXBX0BdBOvu" target="_blank" class="small link">whiskey flavoured lips</a></li>
-					<li><a href="https://open.spotify.com/track/6hU85VYvoDJgpAwshYZVPr" target="_blank" class="small link">angels have fallen</a></li>
+					<li><a href="index.html" class="small link">me</a></li>
+					<li><a href="stuff.html" class="small link">stuff</a></li>
+					<li><a href="playlist.html" class="small link">playlist</a></li>
 				</ul>
 			</div>
 		</div>

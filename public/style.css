@@ -19,6 +19,11 @@
 	cursor: url("img/cursors/cursor_default.png"), auto;
 }
 
+html {
+	width: 100vw;
+	height: 100vh;
+}
+
 body {
 	background-color: hsl(0, 0%, 90%);
 	/* https://opengameart.org/content/ceiling-tile-texture */
@@ -67,7 +72,7 @@ footer {
 
 #left>.container,
 #right>.container {
-	min-width: 150px;
+	width: 150px;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -193,6 +198,9 @@ code {
 .button-88x31 {
 	width: 88px;
 	height: 31px;
+
+	/* outline: 1px solid black;
+	box-sizing: border-box; */
 }
 
 .button-88x31>* {
@@ -269,6 +277,10 @@ code {
 	color: white;
 }
 
+.hide-scrollbar-buttons::-webkit-scrollbar-button {
+	display: none;
+}
+
 #oneko-spawn {
 	position: absolute;
 	right: 24px;
@@ -299,12 +311,6 @@ code {
 	flex-direction: column;
 	gap: 5px;
 	width: 100%;
-}
-
-#cool-sites>.button-88x31 {
-	margin: 0px auto;
-	/* outline: 1px solid black;
-	box-sizing: border-box; */
 }
 
 #creare-button>span {
@@ -502,8 +508,4 @@ footer>#footer-center {
 
 ::-webkit-scrollbar-button:single-button:horizontal:increment {
 	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgLTAuNSAxNiAxNiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj4KPG1ldGFkYXRhPk1hZGUgd2l0aCBQaXhlbHMgdG8gU3ZnIGh0dHBzOi8vY29kZXBlbi5pby9zaHNoYXcvcGVuL1hieHZOajwvbWV0YWRhdGE+CjxwYXRoIHN0cm9rZT0iIzAwMDAwMCIgZD0iTTYgM2gxTTYgNGgyTTYgNWgzTTYgNmg0TTYgN2gzTTYgOGgyTTYgOWgxIiAvPgo8L3N2Zz4=");
-}
-
-::-webkit-scrollbar-corner {
-	background: silver;
 }

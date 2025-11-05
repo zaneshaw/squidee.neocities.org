@@ -16,6 +16,7 @@
 
 :root {
 	font-family: "Inter", sans-serif;
+	cursor: url("cursor_default.png"), auto;
 }
 
 body {
@@ -34,6 +35,7 @@ body {
 	width: min-content;
 
 	visibility: hidden;
+	overflow: hidden;
 }
 
 noscript {
@@ -59,10 +61,17 @@ footer {
 
 #left,
 #right {
+	display: flex;
+	flex-direction: column;
+}
+
+#left>.container,
+#right>.container {
 	min-width: 150px;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	flex-grow: 1;
 }
 
 #center {
@@ -100,6 +109,11 @@ a {
 
 a {
 	display: inline-flex;
+}
+
+a,
+button {
+	cursor: url("cursor_pointer.png"), pointer;
 }
 
 h1,
@@ -175,6 +189,12 @@ code {
 	background-color: hsl(0, 0%, 80%);
 	width: 88px;
 	height: 31px;
+	transition-duration: 150ms;
+}
+
+.button-88x31:hover {
+	scale: 1.1;
+	transform: rotate(1.5deg) translateY(-2px) translateX(1px);
 }
 
 .unstyled-ul {
@@ -244,11 +264,48 @@ code {
 	color: white;
 	padding: 0px 5px;
 	user-select: none;
-	cursor: not-allowed;
+	cursor: url("cursor_error.png"), not-allowed;
 }
 
 footer>#footer-center {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+#settings {
+	padding: 10px;
+	flex-direction: row;
+	flex-grow: 0 !important;
+	flex-basis: 0;
+	align-items: center;
+}
+
+#settings>label {
+	cursor: url("cursor_pointer.png"), pointer;
+	width: fit-content;
+	display: inline-block;
+	white-space: nowrap;
+	margin-top: -2px;
+}
+
+#settings>label>b {
+	vertical-align: middle;
+	font-size: 14px;
+}
+
+#settings>label>input {
+	cursor: url("cursor_pointer.png"), pointer;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+#underwater-effect {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	visibility: hidden;
 }

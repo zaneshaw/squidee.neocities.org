@@ -99,7 +99,6 @@ function oneko() {
 		mousePosX = homePosX;
 		mousePosY = homePosY;
 		if (home) {
-			console.log("aa")
 			nekoPosX = homePosX;
 			nekoPosY = homePosY;
 		}
@@ -145,11 +144,11 @@ function oneko() {
 		nekoEl.style.width = "32px";
 		nekoEl.style.height = "32px";
 		nekoEl.style.position = "fixed";
-		nekoEl.style.cursor = "pointer";
+		nekoEl.style.cursor = "url('cursor_pointer.png'), pointer";
 		nekoEl.style.imageRendering = "pixelated";
 		nekoEl.style.left = `${nekoPosX - 16}px`;
 		nekoEl.style.top = `${nekoPosY - 16}px`;
-		nekoEl.style.zIndex = 2147483647;
+		nekoEl.style.zIndex = 2147483646;
 
 		nekoEl.style.backgroundImage = `url(${nekoFile})`;
 
@@ -325,4 +324,4 @@ function oneko() {
 	init();
 }
 
-document.body.onload = oneko;
+window.addEventListener("load", oneko);

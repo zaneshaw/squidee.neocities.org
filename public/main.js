@@ -8,7 +8,7 @@ let template = `<div id="content">
 	<div id="left">
 		<div class="container">
 			<a href="index.html" id="hero-image">
-				<img src="zanesquid3_small.png" alt="me with a squid hat" class="image">
+				<img src="zanesquid3_small.png" alt="me with a squid hat">
 			</a>
 			<div>
 				<h4>♫ playlist</h4>
@@ -92,7 +92,10 @@ let template = `<div id="content">
 	</div>
 	<div id="oneko-spawn"></div>
 </footer>
-<div id="underwater-effect"></div>`;
+<div class="water"><div></div></div>
+<div class="water" id="water-two"><div></div></div>
+<div id="underwater-effect"></div>
+<div id="squid"></div>`;
 
 if (main.dataset["replaceme"] != undefined) {
 	template = template.replace("%COOL MAIN CONTENT%", main.innerHTML);
@@ -119,5 +122,81 @@ mouseEffectCheckbox.addEventListener("change", (e) => {
 });
 
 setMouseEffect(mouseEffectCheckbox.checked);
+
+const sleepRange = [300, 600];
+const squidEl = document.getElementById("squid");
+let squid = {
+	posX: 0,
+	posY: 0,
+	velocityX: 0,
+	velocityY: 0,
+	sleeping: true,
+	sleepTimer: Math.floor(Math.random() * (sleepRange[1] - sleepRange[0]) + sleepRange[1]),
+	slow: false,
+};
+
+let squidLocalStorage = window.localStorage.getItem("squid");
+if (squidLocalStorage != null) {
+	squid = JSON.parse(squidLocalStorage);
+}
+
+window.addEventListener("beforeunload", function (e) {
+	window.localStorage.setItem("squid", JSON.stringify(squid));
+});
+
+// rewrite at some point
+function processSquid() {
+	if (squid.sleeping && squid.sleepTimer <= 0) {
+		squid.sleeping = false;
+		squid.posX = window.innerWidth - 150;
+		squid.posY = 100;
+		squid.velocityX = 5;
+		squid.velocityY = -1;
+	}
+
+	if (squid.sleeping) {
+		squid.sleepTimer--;
+	} else {
+		if (squid.velocityY > 1) {
+			squidEl.style.backgroundPositionX = "300px";
+		} else {
+			if (squid.posY < 105) {
+				squidEl.style.backgroundPositionX = "600px";
+				squid.slow = true;
+			} else {
+				squidEl.style.backgroundPositionX = "0px";
+			}
+		}
+
+		if (squid.posY < 100) {
+			squid.velocityX = 8;
+			squid.velocityY = 5;
+			squid.slow = false;
+		}
+
+		squid.posX -= squid.velocityX;
+		squid.posY += squid.velocityY;
+		squid.velocityX -= 0.15;
+		squid.velocityY -= 0.3;
+		if (squid.slow) {
+			if (squid.velocityX < 1) squid.velocityX = 1;
+			if (squid.velocityY < -0.3) squid.velocityY = -0.3;
+		} else {
+			if (squid.velocityX < 3) squid.velocityX = 3;
+			if (squid.velocityY < -1) squid.velocityY = -1;
+		}
+
+		if (squid.posX < -300) {
+			squid.sleeping = true;
+			squid.sleepTimer = Math.floor(Math.random() * (sleepRange[1] - sleepRange[0]) + sleepRange[1]);
+		}
+	}
+
+	squidEl.style.left = `${squid.posX}px`;
+	squidEl.style.bottom = `${squid.posY}px`;
+	squidEl.style.display = squid.sleeping ? "none" : "block";
+}
+
+setInterval(processSquid, 40);
 
 document.body.style.visibility = "visible";

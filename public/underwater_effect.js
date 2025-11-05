@@ -1,5 +1,5 @@
 // <![CDATA[
-var colours = new Array("#a6f", "#60f", "#60f", "#a6f", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
+var colours = new Array("#76f", "#20f", "#20f", "#76f", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
 var bubbles = 80; // maximum number of bubbles on screen
 var over_or_under = "over"; // set to "over" for bubbles to always be on top, or "under" to allow them to float behind other objects
 
@@ -21,6 +21,8 @@ var bubbs = new Array();
 var sploosh = false;
 
 function buble() {
+	document.getElementById("underwater-effect").innerHTML = "";
+
 	if (document.getElementById) {
 		var i, rats, div;
 		for (i = 0; i < bubbles; i++) {
@@ -79,7 +81,7 @@ function bubble() {
 				bubb[c].style.width = "3px";
 				bubb[c].style.height = "3px";
 				bubb[c].style.visibility = "visible";
-				bubb[c].dataset.lifetime = Math.random() * (100 - 50) + 50;
+				bubb[c].dataset.lifetime = Math.floor(Math.random() * (100 - 50) + 50);
 				bubbs[c] = 3;
 				break;
 			}
@@ -155,7 +157,7 @@ function createDiv(height, width) {
 	div.style.overflow = "hidden";
 	div.style.backgroundColor = "transparent";
 	div.style.pointerEvents = "none";
-	div.dataset.lifetime = Math.random() * (100 - 50) + 50;
+	div.dataset.lifetime = Math.floor(Math.random() * (100 - 50) + 50);
 	return div;
 }
 

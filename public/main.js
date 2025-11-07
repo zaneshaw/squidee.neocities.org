@@ -17,7 +17,7 @@ let template = `<div id="content">
 				<img src="img/zanesquid3_small.png" alt="me with a squid hat">
 			</a>
 			<div>
-				<h2>my button</h2>
+				<h2>my badge</h2>
 				<a class="button-88x31"><img src="img/badges/88x31_squidee.gif" alt="squidee"></a>
 				<textarea rows="3" onclick="this.select()" class="hide-scroll-buttons" style="resize: none; width: 100%;">${badgeSnippet}</textarea>
 			</div>
@@ -93,7 +93,7 @@ let template = `<div id="content">
 		<span>🦑</span>
 		<span>created <i>4 Nov 2025</i></span>
 		<span>🦑</span>
-		<span>last updated <i>6 Nov 2025</i></span>
+		<span>last updated <i>7 Nov 2025</i></span>
 		<span>🦑</span>
 	</div>
 	<div id="oneko-spawn"></div>

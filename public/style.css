@@ -128,13 +128,14 @@ h3,
 h4,
 h5,
 h6,
-b,
-a {
+b {
 	color: black;
 }
 
 a {
+	color: hsl(0, 0%, 20%);
 	display: inline-flex;
+	text-decoration: none;
 }
 
 a,
@@ -164,6 +165,7 @@ nav>a {
 }
 
 nav>a {
+	color: black;
 	transition-duration: 150ms;
 	flex-grow: 1;
 	flex-basis: 0;
@@ -235,6 +237,8 @@ code {
 }
 
 .link {
+	color: black;
+	text-decoration: underline;
 	transition-duration: 75ms;
 }
 
@@ -246,8 +250,8 @@ code {
 .hover-text {
 	position: relative;
 	display: inline-block;
-	height: 20px;
 	cursor: url("img/cursors/cursor_pointer.png"), pointer;
+	color: transparent;
 }
 
 .hover-text::before,
@@ -255,28 +259,25 @@ code {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	height: 100%;
 }
 
 .hover-text::before {
 	content: attr(data-text);
-	opacity: 1;
 	color: black;
 	text-decoration: underline;
 }
 
 .hover-text::after {
 	content: attr(data-hover);
-	width: 0px;
 	background-color: #a574a8;
-	color: #ffffff00;
+	opacity: 0;
+
 	transition-duration: 150ms;
-	transition-property: width, color;
+	transition-property: opacity;
 }
 
 .hover-text:hover::after {
 	opacity: 1;
-	width: 95px;
 	color: #ffffffff;
 }
 
@@ -302,7 +303,8 @@ code {
 }
 
 #hero-image {
-	width: 128px;
+	margin: 0px auto;
+	width: 100px;
 	transition-duration: 150ms;
 	filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
 	-webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
@@ -336,11 +338,6 @@ code {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-#todo-list>ul {
-	font-family: monospace;
-	font-size: 12px;
 }
 
 #email {
@@ -486,6 +483,7 @@ footer>#footer-center {
 #water-two {
 	animation-delay: -5s;
 	z-index: -3;
+	left: -20px;
 }
 
 #water-two>div {

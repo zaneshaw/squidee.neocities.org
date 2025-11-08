@@ -1,5 +1,5 @@
 const main = document.querySelector("main");
-const badgeSnippet = `<a href="https://squidee.dev/"><img src="https://squidee.dev/img/badges/88x31_squidee.gif"></a>`;
+const badgeSnippet = `<a href="https://squidee.neocities.org"><img src="https://squidee.neocities.org/img/badges/88x31_squidee.gif"></a>`;
 
 function applySettings(settings) {
 	document.getElementById("underwater-effect").style.display = settings["mouse_effect"] ? "block" : "none";
@@ -34,14 +34,15 @@ let template = `<div id="content">
 			<a href="updates.html" id="whats-new">
 				<h2>what's new?</h2>
 				<ul class="unstyled-ul">
+					<li>08-11-25 neocities</li>
 					<li>07-11-25 new badge</li>
 					<li>06-11-25 smaller text</li>
 				</ul>
 			</a>
-		</div>
-		<div class="container" id="settings">
-			<label class="container"><input type="checkbox" id="mouse-effect-toggle" /><img src="img/bubble.png"></label>
-			<label class="container"><input type="checkbox" id="squid-toggle" /><img src="img/squid1.png"></label>
+			<div id="settings">
+				<label><input type="checkbox" id="mouse-effect-toggle" /><img src="img/bubble.png"></label>
+				<label><input type="checkbox" id="squid-toggle" /><img src="img/squid1.png"></label>
+			</div>
 		</div>
 	</div>
 	<div id="center">
@@ -69,22 +70,12 @@ let template = `<div id="content">
 					<li><a href="https://www.youtube.com/@LiamStreamArchive/" target="_blank" class="link">Liam Stream Archive</a></li>
 				</ul>
 			</div>
-			<div>
+			<div class="badge-list">
 				<h2>friends</h2>
-				<ul class="unstyled-ul">
-					<li><a href="https://pincasplace.neocities.org/" target="_blank" class="link">pinca's place</a></li>
-					<li><a href="https://mackerel.dev/" target="_blank" class="link">mackereldev</a></li>
-				</ul>
+				<a href="https://pincasplace.neocities.org/" target="_blank" class="button-88x31"><img src="img/badges/88x31_pinca.gif" alt="pinca"></a>
+				<div><a href="https://mackerel.dev/" target="_blank" class="link">mackereldev</a></div>
 			</div>
-			<div>
-				<h2>other links</h2>
-				<ul class="unstyled-ul">
-					<li><a href="https://squidee.dev/" target="_blank" class="link">squidee.dev</a></li>
-					<li><a href="https://github.com/zaneshaw/" target="_blank" class="link">github</a></li>
-					<li><a href="https://x.com/zaneshaw_/" target="_blank" class="link">twitter</a></li>
-				</ul>
-			</div>
-			<div id="cool-sites">
+			<div class="badge-list">
 				<h2>cool sites</h2>
 				<a href="https://dimden.dev/" target="_blank" class="button-88x31"><img src="img/badges/88x31_dimden.gif" alt="dimden"></a>
 				<a href="https://ribo.zone/" target="_blank" class="button-88x31"><img src="img/badges/88x31_ribose.png" alt="ribo zone"></a>
@@ -104,7 +95,7 @@ let template = `<div id="content">
 		<span>🦑</span>
 		<span>created <i>4 Nov 2025</i></span>
 		<span>🦑</span>
-		<span>last updated <i>7 Nov 2025</i></span>
+		<span>last updated <i>8 Nov 2025</i></span>
 		<span>🦑</span>
 	</div>
 	<div id="oneko-spawn"></div>

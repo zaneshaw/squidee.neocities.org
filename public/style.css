@@ -322,7 +322,7 @@ code {
 	-webkit-filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.25));
 }
 
-#cool-sites {
+.badge-list {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -359,20 +359,24 @@ footer>#footer-center {
 	flex-basis: 0;
 	max-height: 40px;
 	gap: 0px !important;
+	display: flex;
+	margin-top: auto;
 }
 
-#settings>.container {
+#settings>label {
 	position: relative;
 	display: flex;
 	flex-grow: 1;
 	flex-basis: 0;
 	padding: 6px;
+	margin: 5px;
 	justify-content: center;
 	align-items: center;
 	cursor: url("img/cursors/cursor_pointer.png"), pointer;
+	outline: 1px solid black;
 }
 
-#settings>.container::after {
+#settings>label::after {
 	content: "_______________";
 	background-image: url("img/error.png");
 	background-repeat: no-repeat;
@@ -387,15 +391,15 @@ footer>#footer-center {
 	transition-duration: 150ms;
 }
 
-#settings>.container:not(:has(input:checked))::after {
+#settings>label:not(:has(input:checked))::after {
 	opacity: 1;
 }
 
-#settings>.container>input {
+#settings>label>input {
 	display: none;
 }
 
-#settings>.container>img {
+#settings>label>img {
 	height: 100%
 }
 

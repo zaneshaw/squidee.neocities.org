@@ -88,6 +88,22 @@ footer {
 	gap: 10px;
 }
 
+#stuff {
+
+}
+
+#stuff > div {
+	display: flex;
+	gap: 10px;
+}
+
+#stuff > div > div {
+	display: flex;
+	gap: 10px;
+
+	flex-grow: 1;
+}
+
 nav {
 	display: flex;
 	justify-content: space-between;
@@ -99,7 +115,7 @@ main {
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 10px;
 }
 
 p {
@@ -140,7 +156,8 @@ a {
 }
 
 a,
-button {
+button,
+.link {
 	cursor: url("img/cursors/cursor_pointer.png"), pointer;
 }
 
@@ -156,7 +173,7 @@ h6 {
 .container,
 nav>a {
 	background-color: white;
-	outline: 1px solid black;
+	border: 1px solid black;
 	box-sizing: border-box;
 	padding: 10px;
 
@@ -351,56 +368,6 @@ footer>#footer-center {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-}
-
-#settings {
-	padding: 0px;
-	flex-direction: row !important;
-	flex-basis: 0;
-	max-height: 40px;
-	gap: 0px !important;
-	display: flex;
-	margin-top: auto;
-}
-
-#settings>label {
-	position: relative;
-	display: flex;
-	flex-grow: 1;
-	flex-basis: 0;
-	padding: 6px;
-	margin: 5px;
-	justify-content: center;
-	align-items: center;
-	cursor: url("img/cursors/cursor_pointer.png"), pointer;
-	outline: 1px solid black;
-}
-
-#settings>label::after {
-	content: "_______________";
-	background-image: url("img/error.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	height: 20px;
-	position: absolute;
-	color: transparent;
-	pointer-events: none;
-
-	opacity: 0;
-	transition-duration: 150ms;
-}
-
-#settings>label:not(:has(input:checked))::after {
-	opacity: 1;
-}
-
-#settings>label>input {
-	display: none;
-}
-
-#settings>label>img {
-	height: 100%
 }
 
 #underwater-effect {

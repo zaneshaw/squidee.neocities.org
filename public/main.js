@@ -1,9 +1,16 @@
 const main = document.querySelector("main");
 const badgeSnippet = `<a href="https://squidee.neocities.org"><img src="https://squidee.neocities.org/img/badges/88x31_squidee.gif"></a>`;
 
+const scripts = ["oneko.js", "underwater_effect.js", "howler.js"];
+
+let bgm;
+
 function applySettings(settings) {
-	document.getElementById("underwater-effect").style.display = settings["mouse_effect"] ? "block" : "none";
+	bgm?.mute(!settings["bgm"]);
+	document.getElementById("bgm-mute-icon").innerText = settings["bgm"] ? "🔊" : "🔇";
+
 	document.getElementById("squid").style.visibility = settings["squid"] ? "visible" : "hidden";
+	squidCheckbox.innerText = settings["squid"] ? "hide squid" : "show squid";
 }
 
 function saveSettings(settings) {
@@ -36,15 +43,11 @@ let layout =
 					<a href="updates.html" id="whats-new">
 						<h2>what's new?</h2>
 						<ul class="unstyled-ul">
+							<li>09-11-25 bg music</li>
 							<li>08-11-25 neocities</li>
 							<li>07-11-25 new badge</li>
-							<li>06-11-25 smaller text</li>
 						</ul>
 					</a>
-					<div id="settings">
-						<label><input type="checkbox" id="mouse-effect-toggle" /><img src="img/bubble.png" /></label>
-						<label><input type="checkbox" id="squid-toggle" /><img src="img/squid1.png" /></label>
-					</div>
 				</div>
 			</div>
 			<div id="center">
@@ -101,9 +104,9 @@ let layout =
 			</a>
 			<div id="footer-center">
 				<span>🦑</span>
-				<span>created <i>4 Nov 2025</i></span>
+				<span class="link" id="bgm-toggle">bgm: aqua alaganza <span id="bgm-mute-icon">🔊</span></span>
 				<span>🦑</span>
-				<span>last updated <i>8 Nov 2025</i></span>
+				<span class="link" id="squid-toggle">hide the squid</span>
 				<span>🦑</span>
 			</div>
 			<div id="oneko-spawn"></div>
@@ -120,41 +123,30 @@ if (main.dataset["maincontent"] != undefined) {
 	layout = layout.replace("%COOL MAIN CONTENT%", main.outerHTML);
 	main.outerHTML = layout;
 
-	const onekoScript = document.createElement("script");
-	onekoScript.src = "oneko.js";
-	document.body.appendChild(onekoScript);
-
-	const underwaterEffectScript = document.createElement("script");
-	underwaterEffectScript.src = "underwater_effect.js";
-	document.body.appendChild(underwaterEffectScript);
+	for (src of scripts) {
+		const script = document.createElement("script");
+		script.src = src;
+		document.body.appendChild(script);
+	}
 }
 
 const defaultSettings = {
-	mouse_effect: true,
+	bgm: true,
 	squid: true,
 };
 let settings = {};
 const settingsLS = window.localStorage.getItem("settings");
 if (settingsLS == null) {
 	settings = defaultSettings;
-	saveSettings(settings);
 } else {
-	settings = JSON.parse(settingsLS);
+	settings = {...defaultSettings, ...JSON.parse(settingsLS)};
 }
+saveSettings(settings);
 
-const mouseEffectCheckbox = document.getElementById("mouse-effect-toggle");
 const squidCheckbox = document.getElementById("squid-toggle");
-mouseEffectCheckbox.checked = settings["mouse_effect"];
-squidCheckbox.checked = settings["squid"];
 
-mouseEffectCheckbox.addEventListener("change", (e) => {
-	settings["mouse_effect"] = e.target.checked;
-	applySettings(settings);
-	saveSettings(settings);
-});
-
-squidCheckbox.addEventListener("change", (e) => {
-	settings["squid"] = e.target.checked;
+squidCheckbox.addEventListener("click", () => {
+	settings["squid"] = !settings["squid"];
 	applySettings(settings);
 	saveSettings(settings);
 });
@@ -173,13 +165,15 @@ let squid = {
 	slow: false,
 };
 
-let squidLocalStorage = window.localStorage.getItem("squid");
+const squidLocalStorage = window.localStorage.getItem("squid");
 if (squidLocalStorage != null) {
 	squid = JSON.parse(squidLocalStorage);
 }
 
-window.addEventListener("beforeunload", function (e) {
+window.addEventListener("beforeunload", function () {
 	window.localStorage.setItem("squid", JSON.stringify(squid));
+
+	window.sessionStorage.setItem("bgm_seek", bgm?.seek() ?? 0);
 });
 
 // rewrite at some point
@@ -238,3 +232,36 @@ function processSquid() {
 setInterval(processSquid, 40);
 
 document.body.style.visibility = "visible";
+
+const bgmToggle = document.getElementById("bgm-toggle");
+const bgmVolume = 0.15;
+
+window.addEventListener("load", () => {
+	const bgmSeek = window.sessionStorage.getItem("bgm_seek");
+
+	bgm = new Howl({
+		src: ["https://squidee.dev/aqua_alaganza_16k.opus"],
+		preload: true,
+		loop: true,
+		volume: bgmVolume,
+		mute: !settings["bgm"]
+	});
+	bgm.seek(bgmSeek ?? 0);
+	bgm.play();
+	bgm.fade(0, bgmVolume, 2000);
+
+	bgmToggle.addEventListener("click", () => {
+		settings["bgm"] = !settings["bgm"];
+
+		applySettings(settings);
+		saveSettings(settings);
+	});
+
+	document.addEventListener("visibilitychange", () => {
+		if (document.hidden) {
+			bgm.fade(bgm.volume(), 0, 500);
+		} else {
+			bgm.fade(bgm.volume(), bgmVolume, 500);
+		}
+	});
+});

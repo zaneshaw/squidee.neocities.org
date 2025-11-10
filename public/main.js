@@ -256,7 +256,7 @@ window.addEventListener("load", () => {
 	const bgmSeek = window.sessionStorage.getItem("bgm_seek");
 
 	bgm = new Howl({
-		src: ["https://squidee.dev/aqua_alaganza_16k.opus"],
+		src: ["sound/aqua_alaganza_16k.opus"],
 		preload: true,
 		loop: true,
 		volume: bgmVolume,

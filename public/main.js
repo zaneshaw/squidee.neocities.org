@@ -1,5 +1,5 @@
 const main = document.querySelector("main");
-const badgeSnippet = `<a href="https://squidee.nekoweb.org"><img src="https://squidee.nekoweb.org/img/badges/88x31_squidee.gif"></a>`;
+const badgeSnippet = `<a href="https://squidee.nekoweb.org"><img src="https://squidee.nekoweb.org/assets/images/badges/88x31_squidee.gif"></a>`;
 
 const scripts = ["oneko.js", "underwater_effect.js", "howler.js"];
 
@@ -23,11 +23,11 @@ let layout =
 			<div id="left">
 				<div class="container">
 					<a href="/index.html" id="hero-image">
-						<img src="/img/zanesquid3_small.png" alt="me with a squid hat" />
+						<img src="/assets/images/zanesquid3_small.png" alt="me with a squid hat" />
 					</a>
 					<div>
 						<h2>my badge</h2>
-						<a class="button-88x31"><img src="/img/badges/88x31_squidee.gif" alt="squidee" /></a>
+						<a class="button-88x31"><img src="/assets/images/badges/88x31_squidee.gif" alt="squidee" /></a>
 						<textarea rows="3" onclick="this.select()" class="hide-scroll-buttons" style="resize: none; width: 100%;">${badgeSnippet}</textarea>
 					</div>
 					<div>
@@ -63,7 +63,7 @@ let layout =
 				<nav>
 					<a href="/index.html">me</a>
 					<a href="/stuff.html">stuff</a>
-					<a href="https://squidee.dev/blog" class="nav-external">blog</a>
+					<a href="/gallery.html">gallery</a>
 					<a href="https://squidee.dev/guestbook" class="nav-external">guestbook</a>
 				</nav>
 				%COOL MAIN CONTENT%
@@ -92,16 +92,16 @@ let layout =
 					</div>
 					<div class="badge-list">
 						<h2>friends</h2>
-						<a href="https://pincasplace.neocities.org/" target="_blank" class="button-88x31"><img src="/img/badges/88x31_pinca.gif" alt="pinca" /></a>
+						<a href="https://pincasplace.neocities.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_pinca.gif" alt="pinca" /></a>
 						<div><a href="https://mackerel.dev/" target="_blank" class="link">mackereldev</a></div>
 					</div>
 					<div class="badge-list">
 						<h2>cool sites</h2>
-						<a href="https://dimden.dev/" target="_blank" class="button-88x31"><img src="/img/badges/88x31_dimden.gif" alt="dimden" /></a>
-						<a href="https://ribo.zone/" target="_blank" class="button-88x31"><img src="/img/badges/88x31_ribose.png" alt="ribo zone" /></a>
-						<a href="https://2275.nekoweb.org/" target="_blank" class="button-88x31"><img src="/img/badges/88x31_2275.gif" alt="2275 THE ENIGMATIC" /></a>
-						<a href="https://milkbones.nekoweb.org/" target="_blank" class="button-88x31"><img src="/img/badges/88x31_milkbones.gif" alt="milkbones" /></a>
-						<a href="https://bekianee.nekoweb.org" target="_blank" class="button-88x31"><img src="/img/badges/88x31_beki.gif" alt="beki" /></a>
+						<a href="https://dimden.dev/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_dimden.gif" alt="dimden" /></a>
+						<a href="https://ribo.zone/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_ribose.png" alt="ribo zone" /></a>
+						<a href="https://2275.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_2275.gif" alt="2275 THE ENIGMATIC" /></a>
+						<a href="https://milkbones.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_milkbones.gif" alt="milkbones" /></a>
+						<a href="https://bekianee.nekoweb.org" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_beki.gif" alt="beki" /></a>
 						<a href="https://thecreare.dev/" target="_blank" class="button-88x31" id="creare-button"><span>=^･ω･^=</span></a>
 					</div>
 				</div>
@@ -109,7 +109,7 @@ let layout =
 		</div>
 		<footer class="container">
 			<a href="http://www.acasystems.com/en/button-maker/" target="_blank">
-				<img src="/img/badges/80x15_human_made.png" alt="human made 80x15 badge" />
+				<img src="/assets/images/badges/80x15_human_made.png" alt="human made 80x15 badge" />
 			</a>
 			<div id="footer-center">
 				<span>🦑</span>
@@ -256,7 +256,7 @@ window.addEventListener("load", () => {
 	const bgmSeek = window.sessionStorage.getItem("bgm_seek");
 
 	bgm = new Howl({
-		src: ["sound/aqua_alaganza_16k.opus"],
+		src: ["/assets/sounds/aqua_alaganza_16k.opus"],
 		preload: true,
 		loop: true,
 		volume: bgmVolume,

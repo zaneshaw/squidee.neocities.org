@@ -3,7 +3,7 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: fallback;
-	src: url("/fonts/Inter-Regular.woff2") format("woff2");
+	src: url("/assets/fonts/Inter-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -11,12 +11,12 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: fallback;
-	src: url("/fonts/Inter-Bold.woff2") format("woff2");
+	src: url("/assets/fonts/Inter-Bold.woff2") format("woff2");
 }
 
 :root {
 	font-family: "Inter", sans-serif;
-	cursor: url("/img/cursors/cursor_default.png"), auto;
+	cursor: url("/assets/images/cursors/cursor_default.png"), auto;
 }
 
 html {
@@ -27,7 +27,7 @@ html {
 body {
 	background-color: hsl(0, 0%, 90%);
 	/* https://opengameart.org/content/ceiling-tile-texture */
-	background-image: url("/img/background.jpeg");
+	background-image: url("/assets/images/background.jpeg");
 	background-repeat: repeat;
 	background-size: 256px;
 
@@ -159,7 +159,7 @@ a {
 a,
 button,
 .link {
-	cursor: url("/img/cursors/cursor_pointer.png"), pointer;
+	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
 }
 
 h1,
@@ -269,7 +269,7 @@ code {
 .hover-text {
 	position: relative;
 	display: inline-block;
-	cursor: url("/img/cursors/cursor_pointer.png"), pointer;
+	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
 	color: transparent;
 }
 
@@ -358,7 +358,7 @@ code {
 #email {
 	padding: 0px 5px;
 	user-select: none;
-	cursor: url("/img/cursors/cursor_error.png") 7 7, not-allowed;
+	cursor: url("/assets/images/cursors/cursor_error.png") 7 7, not-allowed;
 }
 
 footer>#footer-center {
@@ -481,7 +481,7 @@ footer>#footer-center {
 	z-index: -2;
 	pointer-events: initial;
 
-	background-image: url("/img/squid.png");
+	background-image: url("/assets/images/squid.png");
 	transform: rotate(-15deg);
 }
 
@@ -513,21 +513,21 @@ footer>#footer-center {
 	background-position: 0 0;
 	background-repeat: repeat;
 	background-size: 2px;
-	cursor: url("/img/cursors/cursor_pointer.png"), pointer;
+	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-	cursor: url("/img/cursors/cursor_scrollv.png") 7 7, n-resize;
+	cursor: url("/assets/images/cursors/cursor_scrollv.png") 7 7, n-resize;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-	cursor: url("/img/cursors/cursor_scrollh.png") 7 7, e-resize;
+	cursor: url("/assets/images/cursors/cursor_scrollh.png") 7 7, e-resize;
 }
 
 ::-webkit-scrollbar-button:single-button {
 	background-repeat: no-repeat;
 	background-size: 16px;
-	cursor: url("/img/cursors/cursor_pointer.png"), pointer;
+	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
 }
 
 ::-webkit-scrollbar-button:single-button:vertical:decrement {

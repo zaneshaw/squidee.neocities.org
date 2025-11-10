@@ -283,7 +283,7 @@ if (statsLS) {
 	document.getElementById("stats-followers").innerText = stats.followers;
 }
 
-if (!statsLS || Date.now() - JSON.parse(statsLS)["time_fetched"] > 60000) {
+if (!statsLS || (Date.now() - (JSON.parse(statsLS)["time_fetched"] || 0) > 60000)) {
 	fetch("https://nekoweb.org/api/site/info/squidee.nekoweb.org")
 		.then((res) => res.json())
 		.then((json) => {

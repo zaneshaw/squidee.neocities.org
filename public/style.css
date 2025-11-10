@@ -70,6 +70,7 @@ footer {
 #right {
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
 }
 
 #left>.container,
@@ -309,10 +310,6 @@ code {
 	color: white;
 }
 
-.hide-scrollbar-buttons::-webkit-scrollbar-button {
-	display: none;
-}
-
 #oneko-spawn {
 	position: absolute;
 	right: 24px;
@@ -488,7 +485,7 @@ footer>#footer-center {
 	transform: rotate(-15deg);
 }
 
-.hide-scroll-buttons::-webkit-scrollbar-button {
+.hide-scrollbar-buttons::-webkit-scrollbar-button {
 	display: none;
 }
 

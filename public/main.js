@@ -49,6 +49,15 @@ let layout =
 						</ul>
 					</a>
 				</div>
+				<div class="container" style="flex-grow: 0;">
+					<div>
+						<h2>stats</h2>
+						<ul class="unstyled-ul">
+							<li>views: <i id="stats-views" style="float: right;">...</i></li>
+							<li>followers: <i id="stats-followers" style="float: right;">...</i></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 			<div id="center">
 				<nav>
@@ -130,6 +139,13 @@ if (main.dataset["maincontent"] != undefined) {
 	}
 }
 
+const statsLS = window.localStorage.getItem("stats");
+if (statsLS) {
+	const stats = JSON.parse(statsLS);
+	document.getElementById("stats-views").innerText = stats.views;
+	document.getElementById("stats-followers").innerText = stats.followers;
+}
+
 const defaultSettings = {
 	bgm: true,
 	squid: true,
@@ -139,7 +155,7 @@ const settingsLS = window.localStorage.getItem("settings");
 if (settingsLS == null) {
 	settings = defaultSettings;
 } else {
-	settings = {...defaultSettings, ...JSON.parse(settingsLS)};
+	settings = { ...defaultSettings, ...JSON.parse(settingsLS) };
 }
 saveSettings(settings);
 
@@ -234,7 +250,7 @@ setInterval(processSquid, 40);
 document.body.style.visibility = "visible";
 
 const bgmToggle = document.getElementById("bgm-toggle");
-const bgmVolume = 0.15;
+const bgmVolume = 0.1;
 
 window.addEventListener("load", () => {
 	const bgmSeek = window.sessionStorage.getItem("bgm_seek");
@@ -244,7 +260,7 @@ window.addEventListener("load", () => {
 		preload: true,
 		loop: true,
 		volume: bgmVolume,
-		mute: !settings["bgm"]
+		mute: !settings["bgm"],
 	});
 	bgm.seek(bgmSeek ?? 0);
 	bgm.play();
@@ -265,3 +281,12 @@ window.addEventListener("load", () => {
 		}
 	});
 });
+
+fetch("https://nekoweb.org/api/site/info/squidee.nekoweb.org")
+	.then((res) => res.json())
+	.then((json) => {
+		document.getElementById("stats-views").innerText = json.views;
+		document.getElementById("stats-followers").innerText = json.followers;
+
+		window.localStorage.setItem("stats", JSON.stringify({ views: json.views, followers: json.followers }));
+	});

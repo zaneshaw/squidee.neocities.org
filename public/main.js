@@ -60,6 +60,7 @@ let layout =
 					</div>
 				</div>
 			</div>
+
 			<div id="center">
 				<nav>
 					<a href="/index.html">me</a>
@@ -69,6 +70,7 @@ let layout =
 				</nav>
 				%COOL MAIN CONTENT%
 			</div>
+
 			<div id="right">
 				<div class="container">
 					<div>
@@ -108,10 +110,21 @@ let layout =
 				</div>
 			</div>
 		</div>
+
 		<footer class="container">
-			<a href="http://www.acasystems.com/en/button-maker/" target="_blank">
-				<img src="/assets/images/badges/80x15_human_made.png" alt="human made 80x15 badge" />
-			</a>
+			<div style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse;">
+				<map name="noaimini14">
+					<area href="https://baccyflap.com/noai" shape="rect" coords="21,0,47,30" target="_blank" alt="no ai webring" title="no ai webring" />
+					<area href="https://baccyflap.com/noai/?prv&s=sqd" target="_top" shape="rect" coords="1,13,19,29" alt="previous" title="previous" />
+					<area href="https://baccyflap.com/noai/?rnd" target="_top" shape="rect" coords="59,7,66,16" alt="random" title="random" />
+					<area href="https://baccyflap.com/noai/?nxt&s=sqd" target="_top" shape="rect" coords="68,1,86,17" alt="next" title="next" />
+				</map>
+				<img
+					usemap="#noaimini14"
+					src="https://baccyflap.com/noai/miniwidget14.gif"
+					alt="a bluegreen rectangle showing the words the NO AI webring, with NO AI being written by a fountain pen, all in the style of 16 bit Windows 95 icons. to either side are two equally Windows-95-style cursors pointing left and right, softly bouncing up and down. in between it all is a small black question mark"
+				/>
+			</div>
 			<div id="footer-center">
 				<span>🦑</span>
 				<span class="link" id="bgm-toggle">bgm: aqua alaganza <span id="bgm-mute-icon">🔊</span></span>
@@ -283,7 +296,7 @@ if (statsLS) {
 	document.getElementById("stats-followers").innerText = stats.followers;
 }
 
-if (!statsLS || (Date.now() - (JSON.parse(statsLS)["time_fetched"] || 0) > 60000)) {
+if (!statsLS || Date.now() - (JSON.parse(statsLS)["time_fetched"] || 0) > 60000) {
 	fetch("https://nekoweb.org/api/site/info/squidee.nekoweb.org")
 		.then((res) => res.json())
 		.then((json) => {

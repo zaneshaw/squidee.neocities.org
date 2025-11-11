@@ -96,7 +96,7 @@ let layout =
 					<div class="badge-list">
 						<h2>friends</h2>
 						<a href="https://pincasplace.neocities.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_pinca.gif" alt="pinca" /></a>
-						<div><a href="https://mackerel.dev/" target="_blank" class="link">mackereldev</a></div>
+						<a href="https://mackos.nekoweb.org/" target="_blank" class="button-88x31"><span style="background-color: hsl(0, 0%, 80%);">mackOS</span></a>
 					</div>
 					<div class="badge-list">
 						<h2>cool sites</h2>

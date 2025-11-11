@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 const badgeSnippet = `<a href="https://squidee.nekoweb.org"><img src="https://squidee.nekoweb.org/assets/images/badges/88x31_squidee.gif"></a>`;
 
-const scripts = ["/oneko.js", "/underwater_effect.js", "/howler.js"];
+const scripts = ["/scripts/oneko.js", "/scripts/underwater_effect.js", "/scripts/howler.js"];
 
 let bgm;
 

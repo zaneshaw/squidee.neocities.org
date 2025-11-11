@@ -93,49 +93,6 @@ footer {
 	gap: 10px;
 }
 
-#stuff {
-}
-
-#stuff > div {
-	display: flex;
-	gap: 10px;
-}
-
-#stuff > div > div {
-	display: flex;
-	gap: 10px;
-
-	flex-grow: 1;
-}
-
-#gallery {
-	position: relative;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 10px;
-}
-
-#gallery > a {
-	display: flex;
-	align-items: center;
-	width: 100%;
-}
-
-#gallery > a > img {
-	width: 100%;
-	height: min-content;
-	scale: 1;
-	border: 1px solid black;
-	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
-
-	transition-duration: 150ms;
-}
-
-#gallery > a > img:hover {
-	z-index: 1;
-	scale: 1.05;
-}
-
 #follow-button {
 	border: none;
 	width: 100%;

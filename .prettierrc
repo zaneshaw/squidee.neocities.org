@@ -2,5 +2,15 @@
 	"trailingComma": "all",
 	"tabWidth": 4,
 	"useTabs": true,
-	"printWidth": 200
+	"printWidth": 200,
+	"endOfLine": "lf",
+	"overrides": [
+		{
+			"files": "*.yaml",
+			"options": {
+				"tabWidth": 2,
+				"useTabs": false
+			}
+		}
+	]
 }

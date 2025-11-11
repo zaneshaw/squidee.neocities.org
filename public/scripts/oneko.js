@@ -5,9 +5,7 @@
 // - click oneko to toggle chasing
 
 function oneko() {
-	const isReducedMotion =
-		window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-		window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+	const isReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
 	if (isReducedMotion) return;
 
@@ -105,7 +103,7 @@ function oneko() {
 	}
 
 	function init() {
-		let nekoFile = "./oneko.gif";
+		let nekoFile = "/assets/images/oneko.gif";
 		const curScript = document.currentScript;
 		if (curScript && curScript.dataset.cat) {
 			nekoFile = curScript.dataset.cat;
@@ -188,7 +186,7 @@ function oneko() {
 						bgPos: nekoEl.style.backgroundPosition,
 						home: home,
 						chasing: chasing,
-					})
+					}),
 				);
 			});
 		}

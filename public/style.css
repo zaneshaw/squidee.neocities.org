@@ -77,8 +77,8 @@ footer {
 	gap: 10px;
 }
 
-#left>.container,
-#right>.container {
+#left > .container,
+#right > .container {
 	width: 150px;
 	display: flex;
 	flex-direction: column;
@@ -93,48 +93,10 @@ footer {
 	gap: 10px;
 }
 
-#stuff {
-
-}
-
-#stuff > div {
-	display: flex;
-	gap: 10px;
-}
-
-#stuff > div > div {
-	display: flex;
-	gap: 10px;
-
-	flex-grow: 1;
-}
-
-#gallery {
-	position: relative;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 10px;
-}
-
-#gallery > a {
-	display: flex;
-	align-items: center;
+#follow-button {
+	border: none;
 	width: 100%;
-}
-
-#gallery > a > img {
-	width: 100%;
-	height: min-content;
-	scale: 1;
-	border: 1px solid black;
-	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
-
-	transition-duration: 150ms;
-}
-
-#gallery > a > img:hover {
-	z-index: 1;
-	scale: 1.05;
+	height: 19px;
 }
 
 nav {
@@ -204,7 +166,7 @@ h6 {
 }
 
 .container,
-nav>a {
+nav > a {
 	background-color: white;
 	border: 1px solid black;
 	padding: 10px;
@@ -214,7 +176,7 @@ nav>a {
 	-moz-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.25);
 }
 
-nav>a {
+nav > a {
 	color: black;
 	transition-duration: 150ms;
 	flex-grow: 1;
@@ -224,7 +186,7 @@ nav>a {
 	z-index: 1;
 }
 
-nav>a::before {
+nav > a::before {
 	content: "";
 	position: absolute;
 	bottom: 0px;
@@ -236,11 +198,11 @@ nav>a::before {
 	transition-duration: 150ms;
 }
 
-nav>a:hover::before {
+nav > a:hover::before {
 	height: 100%;
 }
 
-nav>a:hover {
+nav > a:hover {
 	color: white;
 
 	box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
@@ -248,7 +210,7 @@ nav>a:hover {
 	-moz-box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
 }
 
-nav>a.nav-external::after {
+nav > a.nav-external::after {
 	content: "🡭";
 	position: absolute;
 	vertical-align: top;
@@ -267,14 +229,14 @@ code {
 	/* outline: 1px solid black; */
 }
 
-.button-88x31>* {
+.button-88x31 > * {
 	width: 100%;
 	height: 100%;
 	scale: 1;
 	transition-duration: 150ms;
 }
 
-.button-88x31:hover>* {
+.button-88x31:hover > * {
 	scale: 1.1;
 	transform: rotate(1.5deg) translateY(-2px) translateX(1px);
 	z-index: 2;
@@ -350,14 +312,14 @@ code {
 
 #hero-image {
 	margin: 0px auto;
-	width: 100px;
+	width: 80px;
 	scale: 1;
 	transition-duration: 150ms;
 	filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
 	-webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
 }
 
-#hero-image>img {
+#hero-image > img {
 	width: 100%;
 }
 
@@ -375,7 +337,7 @@ code {
 	width: 100%;
 }
 
-#creare-button>span {
+#creare-button > span {
 	background-color: #080808;
 	color: #925eff;
 	font-family: monospace;
@@ -390,10 +352,12 @@ code {
 #email {
 	padding: 0px 5px;
 	user-select: none;
-	cursor: url("/assets/images/cursors/cursor_error.png") 7 7, not-allowed;
+	cursor:
+		url("/assets/images/cursors/cursor_error.png") 7 7,
+		not-allowed;
 }
 
-footer>#footer-center {
+footer > #footer-center {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
@@ -420,7 +384,7 @@ footer>#footer-center {
 	text-decoration: none;
 }
 
-#whats-new>h4 {
+#whats-new > h4 {
 	text-decoration: underline;
 }
 
@@ -479,16 +443,14 @@ footer>#footer-center {
 	overflow: hidden;
 }
 
-.water>div {
+.water > div {
 	height: 100%;
 	width: 100%;
 	background: linear-gradient(to bottom, hsla(220, 90%, 50%, 0.2), hsla(220, 80%, 10%, 0.55));
 	animation: water-bob 5s ease-in-out alternate infinite;
 
 	/* https://css-generators.com/wavy-shapes/ */
-	--mask:
-		radial-gradient(156.52px at 50% 210px, #000 99%, #0000 101%) calc(50% - 140px) 0/280px 100%,
-		radial-gradient(156.52px at 50% -140px, #0000 99%, #000 101%) 50% 70px/280px 100% repeat-x;
+	--mask: radial-gradient(156.52px at 50% 210px, #000 99%, #0000 101%) calc(50% - 140px) 0/280px 100%, radial-gradient(156.52px at 50% -140px, #0000 99%, #000 101%) 50% 70px/280px 100% repeat-x;
 	-webkit-mask: var(--mask);
 	mask: var(--mask);
 }
@@ -499,7 +461,7 @@ footer>#footer-center {
 	left: -20px;
 }
 
-#water-two>div {
+#water-two > div {
 	animation-delay: -2.5s;
 }
 
@@ -532,7 +494,9 @@ footer>#footer-center {
 	width: 16px;
 	height: 16px;
 	background: silver;
-	box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px gray;
+	box-shadow:
+		inset 1px 1px #dfdfdf,
+		inset -1px -1px gray;
 	border: 1px solid;
 	border-color: silver #000 #000 silver;
 }
@@ -549,11 +513,15 @@ footer>#footer-center {
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-	cursor: url("/assets/images/cursors/cursor_scrollv.png") 7 7, n-resize;
+	cursor:
+		url("/assets/images/cursors/cursor_scrollv.png") 7 7,
+		n-resize;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-	cursor: url("/assets/images/cursors/cursor_scrollh.png") 7 7, e-resize;
+	cursor:
+		url("/assets/images/cursors/cursor_scrollh.png") 7 7,
+		e-resize;
 }
 
 ::-webkit-scrollbar-button:single-button {

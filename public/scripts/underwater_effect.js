@@ -137,10 +137,7 @@ function set_scroll() {
 	} else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
 		sdown = document.body.scrollTop;
 		sleft = document.body.scrollLeft;
-	} else if (
-		document.documentElement &&
-		(document.documentElement.scrollTop || document.documentElement.scrollLeft)
-	) {
+	} else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
 		sleft = document.documentElement.scrollLeft;
 		sdown = document.documentElement.scrollTop;
 	} else {

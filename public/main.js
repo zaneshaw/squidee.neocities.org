@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 const badgeSnippet = `<a href="https://squidee.nekoweb.org"><img src="https://squidee.nekoweb.org/assets/images/badges/88x31_squidee.gif"></a>`;
 
-const scripts = ["oneko.js", "underwater_effect.js", "howler.js"];
+const scripts = ["/scripts/oneko.js", "/scripts/underwater_effect.js", "/scripts/howler.js"];
 
 let bgm;
 
@@ -50,7 +50,7 @@ let layout =
 						</ul>
 					</a>
 				</div>
-				<div class="container" style="flex-grow: 0;">
+				<div class="container" style="flex-grow: 0; gap: 5px;">
 					<div>
 						<h2>stats</h2>
 						<ul class="unstyled-ul">
@@ -58,8 +58,10 @@ let layout =
 							<li>followers: <i id="stats-followers" style="float: right;">...</i></li>
 						</ul>
 					</div>
+					<iframe src="https://nekoweb.org/frame/follow" id="follow-button"></iframe>
 				</div>
 			</div>
+
 			<div id="center">
 				<nav>
 					<a href="/index.html">me</a>
@@ -69,6 +71,7 @@ let layout =
 				</nav>
 				%COOL MAIN CONTENT%
 			</div>
+
 			<div id="right">
 				<div class="container">
 					<div>
@@ -94,7 +97,7 @@ let layout =
 					<div class="badge-list">
 						<h2>friends</h2>
 						<a href="https://pincasplace.neocities.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_pinca.gif" alt="pinca" /></a>
-						<div><a href="https://mackerel.dev/" target="_blank" class="link">mackereldev</a></div>
+						<a href="https://mackos.nekoweb.org/" target="_blank" class="button-88x31"><span style="background-color: hsl(0, 0%, 80%);">mackOS</span></a>
 					</div>
 					<div class="badge-list">
 						<h2>cool sites</h2>
@@ -108,10 +111,21 @@ let layout =
 				</div>
 			</div>
 		</div>
+
 		<footer class="container">
-			<a href="http://www.acasystems.com/en/button-maker/" target="_blank">
-				<img src="/assets/images/badges/80x15_human_made.png" alt="human made 80x15 badge" />
-			</a>
+			<div style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse;">
+				<map name="noaimini14">
+					<area href="https://baccyflap.com/noai" shape="rect" coords="21,0,47,30" target="_blank" alt="no ai webring" title="no ai webring" />
+					<area href="https://baccyflap.com/noai/?prv&s=sqd" target="_top" shape="rect" coords="1,13,19,29" alt="previous" title="previous" />
+					<area href="https://baccyflap.com/noai/?rnd" target="_top" shape="rect" coords="59,7,66,16" alt="random" title="random" />
+					<area href="https://baccyflap.com/noai/?nxt&s=sqd" target="_top" shape="rect" coords="68,1,86,17" alt="next" title="next" />
+				</map>
+				<img
+					usemap="#noaimini14"
+					src="https://baccyflap.com/noai/miniwidget14.gif"
+					alt="a bluegreen rectangle showing the words the NO AI webring, with NO AI being written by a fountain pen, all in the style of 16 bit Windows 95 icons. to either side are two equally Windows-95-style cursors pointing left and right, softly bouncing up and down. in between it all is a small black question mark"
+				/>
+			</div>
 			<div id="footer-center">
 				<span>🦑</span>
 				<span class="link" id="bgm-toggle">bgm: aqua alaganza <span id="bgm-mute-icon">🔊</span></span>
@@ -283,7 +297,7 @@ if (statsLS) {
 	document.getElementById("stats-followers").innerText = stats.followers;
 }
 
-if (!statsLS || (Date.now() - (JSON.parse(statsLS)["time_fetched"] || 0) > 60000)) {
+if (!statsLS || Date.now() - (JSON.parse(statsLS)["time_fetched"] || 0) > 60000) {
 	fetch("https://nekoweb.org/api/site/info/squidee.nekoweb.org")
 		.then((res) => res.json())
 		.then((json) => {

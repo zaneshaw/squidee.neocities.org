@@ -152,7 +152,8 @@ a {
 
 a,
 button,
-.link {
+.link,
+area[href] {
 	cursor: url("/assets/images/cursors/cursor_pointer.png"), pointer;
 }
 
@@ -178,12 +179,22 @@ nav > a {
 
 nav > a {
 	color: black;
-	transition-duration: 150ms;
 	flex-grow: 1;
 	flex-basis: 0;
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
+
+	transition-duration: 150ms;
+	transition-property: color, box-shadow, -webkit-box-shadow, -moz-box-shadow;
+}
+
+nav > a:hover {
+	color: white;
+
+	box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
+	-webkit-box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
+	-moz-box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
 }
 
 nav > a::before {
@@ -195,19 +206,13 @@ nav > a::before {
 	height: 0%;
 	background: #a574a8;
 	z-index: -1;
+
 	transition-duration: 150ms;
+	transition-property: height;
 }
 
 nav > a:hover::before {
 	height: 100%;
-}
-
-nav > a:hover {
-	color: white;
-
-	box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
-	-webkit-box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
-	-moz-box-shadow: 5px 5px 0px 0px rgba(165, 116, 168, 0.5);
 }
 
 nav > a.nav-external::after {
@@ -229,11 +234,18 @@ code {
 	/* outline: 1px solid black; */
 }
 
+.empty-88x31 {
+	border: 1px solid rgb(150, 150, 150);
+	border-style: dotted;
+}
+
 .button-88x31 > * {
 	width: 100%;
 	height: 100%;
 	scale: 1;
+
 	transition-duration: 150ms;
+	transition-property: scale, transform, z-index;
 }
 
 .button-88x31:hover > * {
@@ -251,7 +263,9 @@ code {
 .link {
 	color: black;
 	text-decoration: underline;
+
 	transition-duration: 75ms;
+	transition-property: background-color, color;
 }
 
 .link:hover {
@@ -281,6 +295,7 @@ code {
 
 .hover-text::after {
 	content: attr(data-hover);
+	color: #ffffffff;
 	background-color: #a574a8;
 	opacity: 0;
 
@@ -290,13 +305,14 @@ code {
 
 .hover-text:hover::after {
 	opacity: 1;
-	color: #ffffffff;
 }
 
 .spoiler {
 	color: black;
 	background-color: black;
+
 	transition: 150ms;
+	transition-property: color;
 }
 
 .spoiler:hover {
@@ -314,9 +330,11 @@ code {
 	margin: 0px auto;
 	width: 80px;
 	scale: 1;
-	transition-duration: 150ms;
 	filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
 	-webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+
+	transition-duration: 150ms;
+	transition-property: scale, transform, filter, -webkit-filter;
 }
 
 #hero-image > img {

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style>
+			@font-face {
+				font-family: basiic;
+				font-style: normal;
+				font-weight: 400;
+				font-display: fallback;
+				src: url("/assets/fonts/basiic.ttf") format("truetype");
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0px;
+				overflow: hidden;
+				font-family: basiic, sans-serif;
+			}
+
+			button {
+				background: none;
+				color: inherit;
+				border: none;
+				padding: 0;
+				font: inherit;
+				cursor: pointer;
+				outline: inherit;
+			}
+
+			#pet {
+				position: relative;
+				width: 170px;
+				height: 170px;
+				background-color: white;
+			}
+
+			#debug {
+				position: absolute;
+				top: 0px;
+				left: 170px;
+				height: 100%;
+				width: 170px;
+				color: white;
+				background-color: black;
+				margin: 0px;
+			}
+
+			#squid {
+				position: absolute;
+				z-index: 5;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				height: 50px;
+			}
+
+			#squid > img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.button {
+				padding: 2px 4px;
+				color: white;
+				background-color: rgb(195, 0, 255);
+			}
+
+			.nav-buttons {
+				display: flex;
+				gap: 4px;
+				padding: 4px;
+				width: min-content;
+			}
+
+			.page {
+				position: relative;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				display: none;
+				background-size: 100% 100%;
+			}
+
+			.page#home {
+				background-image: url("/assets/images/pet/bg/sidewalk.jpeg");
+			}
+
+			.page#shop {
+				background-image: url("/assets/images/pet/bg/shop_TEMP.png");
+			}
+
+			.page#casino {
+				background-image: url("/assets/images/pet/bg/casino.jpeg");
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+========== CREDIT ==========
+FONT
+basiic: https://cinni.net/?z=/font
+
+IMAGES
+squid: https://poormansgourmetkitchen.com/squid-how-to-clean-and-prepare-whole-squid.html
+background (sidewalk): https://www.orlando.gov/Building-Development/City-Projects/City-Sidewalk-Construction
+============================
+-->
+		<div id="pet">
+			<div class="page" id="home">
+				<div class="nav-buttons" style="float: right;">
+					<button class="button" onclick="switchPage('shop')">shop</button>
+					<button class="button" onclick="switchPage('casino')">casino</button>
+				</div>
+
+				<button id="squid"><img src="/assets/images/pet/squid.png" /></button>
+			</div>
+
+			<div class="page" id="shop">
+				<div class="nav-buttons">
+					<button class="button" onclick="switchPage('home')">home</button>
+				</div>
+			</div>
+
+			<div class="page" id="casino">
+				<div class="nav-buttons">
+					<button class="button" onclick="switchPage('home')">home</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			const pref = "VIRTUALSQUID";
+			const debug = true;
+			const starterNames = ["squid", "squid guy", "squid fellow", "ugly blob"];
+
+			const petEl = document.querySelector("#pet");
+			const squidEl = document.querySelector("#squid>img");
+			let data = {
+				data_version: 1,
+				last_save: -1,
+				name: "no name",
+				money: 10,
+				stats: {
+					happiness: 100,
+					enrichment: 0,
+					hunger: 30,
+					depression: 0,
+				},
+				skills: {
+					resilience: { level: 0, time: -1 },
+					agility: { level: 0, time: -1 },
+					swag: { level: 0, time: -1 },
+				},
+				food: [{ id: "corn", quantity: 5 }],
+				clothing: [],
+				save: function () {
+					this.last_save = Date.now();
+					window.localStorage.setItem("pet_data", JSON.stringify(this));
+					console.debug(`[${pref}:SAVE] data saved.`);
+				},
+				load: function () {
+					const loaded = JSON.parse(window.localStorage.getItem("pet_data"));
+
+					if (loaded) {
+						console.debug(`[${pref}:LOAD] data loaded.`);
+						return { ...this, ...loaded };
+					} else {
+						console.debug(`[${pref}:LOAD] no pet found in localstorage.`);
+						return null;
+					}
+				},
+			};
+
+			let currentPageId = "";
+
+			function updateStat(stat, change) {
+				switch (stat) {
+					case "happiness":
+					case "enrichment":
+					case "hunger":
+					case "depression":
+						break;
+					default:
+						console.error(`[${pref}] no stat "${stat}".`);
+						return;
+				}
+
+				data.stats[stat] = Math.max(0, Math.min(data.stats[stat] + change, 100));
+				data.save();
+
+				console.debug(`[${pref}] creating new pet...`);
+			}
+
+			function registerListeners() {
+				window.addEventListener("beforeunload", () => {
+					// data.save();
+				});
+
+				squidEl.addEventListener("click", () => {
+					updateStat("happiness", 1);
+				});
+			}
+
+			function startDebug() {
+				const debugEl = document.createElement("pre");
+				debugEl.id = "debug";
+				petEl.appendChild(debugEl);
+
+				// todo: benchmark this
+				let dataCopy = JSON.stringify({ ...data, currentPageId });
+				setInterval(() => {
+					const currentData = JSON.stringify({ ...data, currentPageId });
+
+					if (currentData !== dataCopy) {
+						dataCopy = currentData;
+						lastPageId = currentPageId;
+
+						const debugLines = [
+							`name: "${data.name}"`,
+							`money: ${data.money}`,
+							"",
+							`hap: ${data.stats.happiness.toString().padEnd(3, " ")}\tenr: ${data.stats.enrichment}`,
+							`hun: ${data.stats.hunger.toString().padEnd(3, " ")}\tdep: ${data.stats.depression}`,
+							"",
+							`res: ${data.skills.resilience.level.toString().padEnd(2, " ")}\tagi: ${data.skills.agility.level.toString().padEnd(2, " ")}\tswa: ${data.skills.swag.level}`,
+							"",
+							`page: "${currentPageId}"`,
+						];
+
+						debugEl.innerText = debugLines.join("\n");
+					}
+				}, 50);
+			}
+
+			function newPet() {
+				console.debug(`[${pref}] creating new pet...`);
+
+				const nameIndex = Math.floor(Math.random() * starterNames.length);
+				data.name = starterNames[nameIndex];
+				console.debug(`[${pref}] data.name = "${starterNames[nameIndex]}"`);
+
+				data.save();
+			}
+
+			function switchPage(pageId) {
+				const newPage = document.querySelector(`.page#${pageId}`);
+				if (newPage) {
+					if (currentPageId) {
+						document.querySelector(`.page#${currentPageId}`).style.display = "none";
+					}
+					newPage.style.display = "block";
+					currentPageId = pageId;
+
+					console.debug(`[${pref}] page switched to "${pageId}".`);
+				} else {
+					console.error(`[${pref}] no page "${pageId}".`);
+				}
+			}
+
+			function main() {
+				registerListeners();
+				if (debug) startDebug();
+
+				const loadedData = data.load();
+				if (loadedData) {
+					console.debug(loadedData);
+					data = loadedData;
+				} else {
+					newPet();
+				}
+
+				switchPage("home");
+			}
+
+			main();
+		</script>
+	</body>
+</html>

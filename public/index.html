@@ -6,6 +6,21 @@
 		<title>zane's site</title>
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<link rel="icon" href="/assets/images/zanesquid3_small.png" />
+
+		<style>
+			.full-container {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				margin-right: 10px;
+			}
+
+			.split-container {
+				display: flex;
+				gap: 10px;
+				margin-right: 10px;
+			}
+		</style>
 	</head>
 	<body>
 		<noscript class="container warning">
@@ -13,62 +28,113 @@
 			<span><b>OOPS!</b> my site won't work without javascript enabled...</span>
 		</noscript>
 
-		<main class="container" data-maincontent>
-			<div>
-				<h1>zane shaw <small>(a.k.a. squidee)</small></h1>
-				<p>
-					yo. i'm a <b>20</b> y/o cs undergrad student currently developing games and websites for fun. i live in melbourne, australia, so it's currently <b>h:mm PM</b> for me. i'll try to
-					keep my <a href="/stuff.html" class="link">folio</a> up-to-date and might <a href="https://squidee.dev/blog" class="link">post</a> about random stuff that i find interesting.
-				</p>
-				<p>
-					leave something in my <a href="https://squidee.dev/guestbook" class="link">guestbook</a> while you're here :D (this will be here on neocities soon. i'll import old ones from
-					squidee.dev when that happens.)
-				</p>
-			</div>
-			<div>
-				<h2>todo</h2>
-				<ul class="unstyled-ul">
-					<li>[ ] virtual pet</li>
-				</ul>
-			</div>
-			<div>
-				<h2>profiles</h2>
-				<ul class="unstyled-ul">
-					<li><a href="https://squidee.dev/" target="_blank" class="link">squidee.dev</a></li>
-					<li><a href="https://github.com/zaneshaw/" target="_blank" class="link">github</a></li>
-					<li><a href="https://x.com/zaneshaw_/" target="_blank" class="link">twitter</a></li>
-					<li><a href="https://steamcommunity.com/id/squidee_/" target="_blank" class="link">steam</a></li>
-					<li><a href="https://open.spotify.com/user/8eravcju0qjkfob2gtzjwoxzu?si=767bfac424624d28/" target="_blank" class="link">spotify</a></li>
-					<li>
+		<main data-maincontent>
+			<div class="container full-container">
+				<div>
+					<h1>zane shaw <small>(a.k.a. squidee)</small></h1>
+					<p>
+						yo. i'm a <b>20</b> y/o cs undergrad student currently developing games and websites for fun. i live in melbourne, australia, so it's currently <b>h:mm PM</b> for me. i'll try
+						to keep my <a href="/stuff.html" class="link">folio</a> up-to-date and might <a href="https://squidee.dev/blog" class="link">post</a> about random stuff that i find
+						interesting.
+					</p>
+					<p>
+						leave something in my <a href="https://squidee.dev/guestbook" class="link">guestbook</a> while you're here :D (this will be here on nekoweb soon. i'll import old ones from
+						squidee.dev when that happens.)
+					</p>
+				</div>
+				<div>
+					<h2>todo</h2>
+					<ul class="unstyled-ul">
+						<li>[ ] virtual pet</li>
+						<li>[ ] free guestbook service</li>
+						<li>[ ] blog</li>
+					</ul>
+				</div>
+				<div>
+					<h2>profiles</h2>
+					<div style="display: flex; gap: 5px">
+						<a href="https://squidee.dev/" target="_blank" class="link">squidee.dev</a>
+						<a href="https://github.com/zaneshaw/" target="_blank" class="link">github</a>
+						<a href="https://x.com/zaneshaw_/" target="_blank" class="link">twitter</a>
+						<a href="https://steamcommunity.com/id/squidee_/" target="_blank" class="link">steam</a>
+						<a href="https://open.spotify.com/user/8eravcju0qjkfob2gtzjwoxzu?si=767bfac424624d28/" target="_blank" class="link">spotify</a>
 						<span class="hover-text" data-text="discord" data-hover="@zaneshaw">_</span>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<h2>inspiration</h2>
-				<div id="badge-grid">
-					<a href="https://yatagarasu.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_yatagarasu.gif" alt="yatagarasu" /></a>
-					<a href="https://onlywonder.net/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_onlywonder.png" alt="only wonder" /></a>
+					</div>
 				</div>
 			</div>
-			<div>
-				<h2>credit</h2>
-				<ul class="unstyled-ul">
-					<li><a href="https://github.com/rsms/inter/" target="_blank" class="link">inter font</a></li>
-					<li><a href="https://opengameart.org/content/ceiling-tile-texture/" target="_blank" class="link">background image</a></li>
-					<li><a href="https://github.com/adryd325/oneko.js/" target="_blank" class="link">oneko.js</a></li>
-					<li><a href="https://opengameart.org/content/cursor-pixel-pack/" target="_blank" class="link">cursor pack</a></li>
-					<li><a href="https://mf2fm.com/rv/dhtmlbubblecursor.php/" target="_blank" class="link">mouse effect</a></li>
-					<li><a href="https://gist.github.com/Dakedres/0ccda599648833a1c2f65d3967aa131b/" target="_blank" class="link">win98 scrollbar</a></li>
-					<li><a href="https://css-generators.com/wavy-shapes/" target="_blank" class="link">wave mask</a></li>
-					<li><a href="https://opengameart.org/content/squid-sprite-sheet/" target="_blank" class="link">squid spritesheet</a></li>
-					<li><a href="https://corporateddreams.bandcamp.com/track/aqua-alaganza/" target="_blank" class="link">aqua alaganza</a></li>
-					<li><a href="https://howlerjs.com/" target="_blank" class="link">howler.js</a></li>
-				</ul>
+			<div class="split-container">
+				<div class="container" style="flex-grow: 1">
+					<h2>cool sites</h2>
+					<div id="badge-grid">
+						<a href="https://dimden.dev/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_dimden.gif" alt="dimden" /></a>
+						<a href="https://ribo.zone/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_ribose.png" alt="ribo zone" /></a>
+						<a href="https://2275.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_2275.gif" alt="2275 THE ENIGMATIC" /></a>
+						<a href="https://milkbones.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_milkbones.gif" alt="milkbones" /></a>
+						<a href="https://bekianee.nekoweb.org" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_beki.gif" alt="beki" /></a>
+						<a href="https://thecreare.dev/" target="_blank" class="button-88x31" id="creare-button"><span>=^･ω･^=</span></a>
+						<div class="button-88x31 empty-88x31"></div>
+						<div class="button-88x31 empty-88x31"></div>
+						<div class="button-88x31 empty-88x31"></div>
+						<div class="button-88x31 empty-88x31"></div>
+						<div class="button-88x31 empty-88x31"></div>
+						<div class="button-88x31 empty-88x31"></div>
+					</div>
+				</div>
+				<div class="container" style="padding: 0px">
+					<iframe src="/virtualpet.html" frameborder="0" width="170" height="170" style="display: block"></iframe>
+				</div>
 			</div>
-			<div>
-				<h2>super secret address for electronical mailing</h2>
-				<code class="spoiler" id="email">zane {at} squidee.dev</code>
+			<div class="container full-container">
+				<div>
+					<h2>inspiration</h2>
+					<div id="badge-grid">
+						<a href="https://yatagarasu.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_yatagarasu.gif" alt="yatagarasu" /></a>
+						<a href="https://onlywonder.net/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_onlywonder.png" alt="only wonder" /></a>
+					</div>
+				</div>
+			</div>
+			<div class="split-container">
+				<div class="container" style="flex-grow: 1; flex-basis: 0">
+					<h2>♫ playlist</h2>
+					<ul class="unstyled-ul">
+						<li><a href="https://open.spotify.com/track/1W0hhsgQfWPumKwR5k6SAJ" target="_blank" class="link">watching you float</a></li>
+						<li><a href="https://open.spotify.com/track/3NQvJtfgay2fjNwI5afZjs" target="_blank" class="link">A Waking Tomorow</a></li>
+						<li><a href="https://open.spotify.com/track/4gatGAviEcd9h4cTyggtgs" target="_blank" class="link">Mezzanine</a></li>
+						<li><a href="https://open.spotify.com/track/3n70xNuonBPREFhMyFV6bt" target="_blank" class="link">Paralyzed</a></li>
+						<li><a href="https://open.spotify.com/track/4CD4GfHOwo5ZP4FkIMTK6j" target="_blank" class="link">The Con</a></li>
+						<li><a href="https://open.spotify.com/track/6eu6WZglMjE5TU1WNodrdF" target="_blank" class="link">pitching stones</a></li>
+						<li><a href="https://open.spotify.com/track/6fTH4b7b5Mvp9xxOSoDiZl" target="_blank" class="link">Stop Pretendinng you Like Salad</a></li>
+						<li><a href="https://open.spotify.com/track/7t91UB7Swk7LxciSLEQiQU" target="_blank" class="link">pretty thing</a></li>
+						<li><a href="https://open.spotify.com/track/03eQWXfDBSLs4ZWq4Ki4h4" target="_blank" class="link">Claw Machine</a></li>
+						<li><a href="https://open.spotify.com/track/0CCYVn1a4xUV83NZTCrRTL" target="_blank" class="link">an angel strikes</a></li>
+						<li><a href="https://open.spotify.com/track/34BbMQc4AFjbojU7q5p9yJ" target="_blank" class="link">god complex</a></li>
+						<li><a href="https://open.spotify.com/track/1QMSdd43oAIzSywXO1U2hO" target="_blank" class="link">VANISHING ACT</a></li>
+						<li><a href="https://open.spotify.com/track/2zsfWeC0hlhYXBX0BdBOvu" target="_blank" class="link">whiskey flavoured lips</a></li>
+						<li><a href="https://open.spotify.com/track/6hU85VYvoDJgpAwshYZVPr" target="_blank" class="link">angels have fallen</a></li>
+					</ul>
+				</div>
+				<div class="container" style="flex-grow: 1; flex-basis: 0">
+					<h2>credit</h2>
+					<ul class="unstyled-ul">
+						<li><a href="https://github.com/rsms/inter/" target="_blank" class="link">inter font</a></li>
+						<li><a href="https://opengameart.org/content/ceiling-tile-texture/" target="_blank" class="link">background image</a></li>
+						<li><a href="http://www.acasystems.com/en/button-maker/" target="_blank" class="link">80x15 button generator</a></li>
+						<li><a href="https://github.com/adryd325/oneko.js/" target="_blank" class="link">oneko.js</a></li>
+						<li><a href="https://opengameart.org/content/cursor-pixel-pack/" target="_blank" class="link">cursor pack</a></li>
+						<li><a href="https://mf2fm.com/rv/dhtmlbubblecursor.php/" target="_blank" class="link">mouse effect</a></li>
+						<li><a href="https://gist.github.com/Dakedres/0ccda599648833a1c2f65d3967aa131b/" target="_blank" class="link">win98 scrollbar</a></li>
+						<li><a href="https://css-generators.com/wavy-shapes/" target="_blank" class="link">wave mask</a></li>
+						<li><a href="https://opengameart.org/content/squid-sprite-sheet/" target="_blank" class="link">squid spritesheet</a></li>
+						<li><a href="https://corporateddreams.bandcamp.com/track/aqua-alaganza/" target="_blank" class="link">aqua alaganza</a></li>
+						<li><a href="https://howlerjs.com/" target="_blank" class="link">howler.js</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="container full-container">
+				<div>
+					<h2>super secret address for electronical mailing</h2>
+					<code class="spoiler" id="email">zane {at} squidee.dev</code>
+				</div>
 			</div>
 		</main>
 

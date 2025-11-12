@@ -36,9 +36,7 @@ let layout =
 							<li><a href="/index.html" class="link">me</a></li>
 							<li><a href="/stuff.html" class="link">stuff</a></li>
 							<li><a href="/gallery.html" class="link">gallery</a></li>
-							<li><a href="/playlist.html" class="link">playlist</a></li>
 							<li><a href="/updates.html" class="link">updates</a></li>
-							<li><a href="/squid.html" class="link">squid</a></li>
 						</ul>
 					</div>
 					<a href="/updates.html" id="whats-new">
@@ -100,32 +98,29 @@ let layout =
 						<a href="https://mackos.nekoweb.org/" target="_blank" class="button-88x31"><span style="background-color: hsl(0, 0%, 80%);">mackOS</span></a>
 					</div>
 					<div class="badge-list">
-						<h2>cool sites</h2>
-						<a href="https://dimden.dev/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_dimden.gif" alt="dimden" /></a>
-						<a href="https://ribo.zone/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_ribose.png" alt="ribo zone" /></a>
-						<a href="https://2275.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_2275.gif" alt="2275 THE ENIGMATIC" /></a>
-						<a href="https://milkbones.nekoweb.org/" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_milkbones.gif" alt="milkbones" /></a>
-						<a href="https://bekianee.nekoweb.org" target="_blank" class="button-88x31"><img src="/assets/images/badges/88x31_beki.gif" alt="beki" /></a>
-						<a href="https://thecreare.dev/" target="_blank" class="button-88x31" id="creare-button"><span>=^･ω･^=</span></a>
+						<h2>webrings</h2>
+						<div style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse; width: min-content;">
+							<map name="noaimini14">
+								<area href="https://baccyflap.com/noai" shape="rect" coords="21,0,47,30" target="_blank" alt="no ai webring" title="no ai webring" />
+								<area href="https://baccyflap.com/noai/?prv&s=sqd" target="_top" shape="rect" coords="1,13,19,29" alt="previous" title="previous" />
+								<area href="https://baccyflap.com/noai/?rnd" target="_top" shape="rect" coords="59,7,66,16" alt="random" title="random" />
+								<area href="https://baccyflap.com/noai/?nxt&s=sqd" target="_top" shape="rect" coords="68,1,86,17" alt="next" title="next" />
+							</map>
+							<img
+								usemap="#noaimini14"
+								src="https://baccyflap.com/noai/miniwidget14.gif"
+								alt="a bluegreen rectangle showing the words the NO AI webring, with NO AI being written by a fountain pen, all in the style of 16 bit Windows 95 icons. to either side are two equally Windows-95-style cursors pointing left and right, softly bouncing up and down. in between it all is a small black question mark"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<footer class="container">
-			<div style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse;">
-				<map name="noaimini14">
-					<area href="https://baccyflap.com/noai" shape="rect" coords="21,0,47,30" target="_blank" alt="no ai webring" title="no ai webring" />
-					<area href="https://baccyflap.com/noai/?prv&s=sqd" target="_top" shape="rect" coords="1,13,19,29" alt="previous" title="previous" />
-					<area href="https://baccyflap.com/noai/?rnd" target="_top" shape="rect" coords="59,7,66,16" alt="random" title="random" />
-					<area href="https://baccyflap.com/noai/?nxt&s=sqd" target="_top" shape="rect" coords="68,1,86,17" alt="next" title="next" />
-				</map>
-				<img
-					usemap="#noaimini14"
-					src="https://baccyflap.com/noai/miniwidget14.gif"
-					alt="a bluegreen rectangle showing the words the NO AI webring, with NO AI being written by a fountain pen, all in the style of 16 bit Windows 95 icons. to either side are two equally Windows-95-style cursors pointing left and right, softly bouncing up and down. in between it all is a small black question mark"
-				/>
-			</div>
+			<a href="http://www.acasystems.com/en/button-maker/" target="_blank">
+				<img src="/assets/images/badges/80x15_human_made.png" alt="human made 80x15 badge" />
+			</a>
 			<div id="footer-center">
 				<span>🦑</span>
 				<span class="link" id="bgm-toggle">bgm: aqua alaganza <span id="bgm-mute-icon">🔊</span></span>
@@ -135,11 +130,12 @@ let layout =
 			</div>
 			<div id="oneko-spawn"></div>
 		</footer>
+
 		<div id="screen-overlay">
 			<div class="water"><div></div></div>
 			<div class="water" id="water-two"><div></div></div>
 			<div id="underwater-effect"></div>
-			<a href="/squid.html"><div id="squid"></div></a>
+			<div id="squid"></div>
 		</div>`;
 
 if (main.dataset["maincontent"] != undefined) {

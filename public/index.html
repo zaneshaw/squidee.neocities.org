@@ -33,8 +33,8 @@
 				<div>
 					<h1>zane shaw <small>(a.k.a. squidee)</small></h1>
 					<p>
-						yo. i'm a <b>20</b> y/o cs undergrad student currently developing games and websites for fun. i live in melbourne, australia, so it's currently <b>h:mm PM</b> for me. i'll try
-						to keep my <a href="/stuff.html" class="link">folio</a> up-to-date and might <a href="https://squidee.dev/blog" class="link">post</a> about random stuff that i find
+						yo. i'm a <b>20</b> y/o cs undergrad student currently developing games and websites for fun. i live in melbourne, australia, so it's currently <b id="time">h:mm PM</b> for me.
+						i'll try to keep my <a href="/stuff.html" class="link">folio</a> up-to-date and might <a href="https://squidee.dev/blog" class="link">post</a> about random stuff that i find
 						interesting.
 					</p>
 					<p>
@@ -80,7 +80,7 @@
 						<div class="button-88x31 empty-88x31"></div>
 					</div>
 				</div>
-				<div class="container" style="padding: 0px;">
+				<div class="container" style="padding: 0px">
 					<iframe src="/virtualpet.html" frameborder="0" width="170" height="170" style="display: block"></iframe>
 				</div>
 			</div>
@@ -139,5 +139,19 @@
 		</main>
 
 		<script src="/main.js"></script>
+		<script>
+			// https://stackoverflow.com/a/30640791/10851455
+			let options = {
+				timeZone: "Australia/Melbourne",
+				hour: "numeric",
+				minute: "numeric",
+			};
+			formatter = new Intl.DateTimeFormat("en-AU", options);
+
+			document.querySelector("#time").innerText = formatter.format(new Date());
+			setInterval(() => {
+				document.querySelector("#time").innerText = formatter.format(new Date());
+			}, 1000);
+		</script>
 	</body>
 </html>

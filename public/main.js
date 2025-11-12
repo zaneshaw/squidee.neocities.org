@@ -123,7 +123,7 @@ let layout =
 			</a>
 			<div id="footer-center">
 				<span>🦑</span>
-				<span class="link" id="bgm-toggle">bgm: aqua alaganza <span id="bgm-mute-icon">🔊</span></span>
+				<span class="link" id="bgm-toggle">bgm: <span id="bgm-name">???</span> <span id="bgm-mute-icon">🔊</span></span>
 				<span>🦑</span>
 				<span class="link" id="squid-toggle">hide the squid</span>
 				<span>🦑</span>
@@ -254,13 +254,26 @@ setInterval(processSquid, 40);
 document.body.style.visibility = "visible";
 
 const bgmToggle = document.getElementById("bgm-toggle");
-const bgmVolume = 0.1;
+const bgmVolume = 0.05;
+const bgmTracks = [
+	{ name: "波", path: "/assets/sounds/波_16k.opus" },
+	{ name: "aqua alaganza", path: "/assets/sounds/aqua_alaganza_16k.opus" },
+	{ name: "公衆 pool", path: "/assets/sounds/公衆_pool_16k.opus" },
+	{ name: "thirdeye.wave", path: "/assets/sounds/thirdeye.wave_16k.opus" },
+];
+const bgmIndex = new Date().getDate() % bgmTracks.length;
+document.querySelector("#bgm-name").innerText = bgmTracks[bgmIndex].name;
 
 window.addEventListener("load", () => {
-	const bgmSeek = window.sessionStorage.getItem("bgm_seek");
+	let bgmSeek = window.sessionStorage.getItem("bgm_seek");
+	if (bgmIndex != window.sessionStorage.getItem("bgm_index")) {
+		bgmSeek = 0;
+		window.sessionStorage.setItem("bgm_seek", 0);
+	}
+	window.sessionStorage.setItem("bgm_index", bgmIndex);
 
 	bgm = new Howl({
-		src: ["/assets/sounds/aqua_alaganza_16k.opus"],
+		src: [bgmTracks[bgmIndex].path],
 		preload: true,
 		loop: true,
 		volume: bgmVolume,

@@ -113,6 +113,9 @@ let layout =
 							/>
 						</div>
 					</div>
+					<a href="https://pincasplace.neocities.org/" target="_blank" title="cool squidee poster by pinca" style="margin-top: auto;">
+						<img src="/assets/images/poster.jpeg" style="width: 100%;" />
+					</a>
 				</div>
 			</div>
 		</div>

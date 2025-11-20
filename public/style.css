@@ -448,6 +448,15 @@ footer > #footer-center {
 	pointer-events: none;
 }
 
+#poster-thing {
+	transition: 150ms;
+	z-index: 2147483647;
+}
+
+#poster-thing:hover {
+	scale: 1.06;
+}
+
 @keyframes water-scroll {
 	from {
 		transform: translateX(-100px);

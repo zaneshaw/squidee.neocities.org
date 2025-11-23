@@ -1,5 +1,5 @@
 const main = document.querySelector("main");
-const buttonSnippet = `<a href="https://squidee.nekoweb.org"><img src="https://squidee.nekoweb.org/assets/images/buttons/88x31_squidee.gif"></a>`;
+const buttonSnippet = `<a href="https://squidee.nekoweb.org" title="zane's site"><img src="https://squidee.nekoweb.org/assets/images/buttons/88x31_squidee.gif"></a>`;
 
 const scripts = ["/scripts/oneko.js", "/scripts/underwater_effect.js", "/scripts/howler.js"];
 
@@ -27,7 +27,7 @@ let layout =
 					</a>
 					<div>
 						<h2>my button</h2>
-						<a class="button-88x31"><img src="/assets/images/buttons/88x31_squidee.gif" alt="squidee" /></a>
+						<a title="zane's site" class="button-88x31"><img src="/assets/images/buttons/88x31_squidee.gif" alt="squidee" /></a>
 						<textarea rows="3" onclick="this.select()" class="hide-scrollbar-buttons" style="resize: none; width: 100%; word-break: break-all;">${buttonSnippet}</textarea>
 						<span>plz hotlink :&rpar;</span>
 					</div>
@@ -96,8 +96,8 @@ let layout =
 					</div>
 					<div class="button-list">
 						<h2>friends</h2>
-						<a href="https://pincasplace.neocities.org/" target="_blank" class="button-88x31"><img src="https://pincasplace.neocities.org/images/badges/88x31_pinca.gif" alt="pinca" /></a>
-						<a href="https://mackos.nekoweb.org/" target="_blank" class="button-88x31"><span style="background-color: hsl(0, 0%, 80%);">mackOS</span></a>
+						<a href="https://pincasplace.neocities.org/" target="_blank" title="pinca's place" class="button-88x31"><img src="https://pincasplace.neocities.org/images/badges/88x31_pinca.gif" alt="pinca's place" /></a>
+						<a href="https://mackos.nekoweb.org/" target="_blank" title="mackOS" class="button-88x31"><span style="background-color: hsl(0, 0%, 80%);">mackOS</span></a>
 					</div>
 					<div class="button-list">
 						<h2>webrings</h2>

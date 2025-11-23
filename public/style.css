@@ -266,6 +266,7 @@ textarea {
 .button-88x31 {
 	width: 88px;
 	height: 31px;
+	image-rendering: pixelated;
 
 	/* outline: 1px solid black; */
 }
@@ -288,6 +289,7 @@ textarea {
 	scale: 1.1;
 	transform: rotate(1.5deg) translateY(-2px) translateX(1px);
 	z-index: 2;
+	image-rendering: initial;
 }
 
 .unstyled-ul {

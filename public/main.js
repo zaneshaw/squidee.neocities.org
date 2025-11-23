@@ -101,7 +101,7 @@ let layout =
 					</div>
 					<div class="button-list">
 						<h2>webrings</h2>
-						<div style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse; width: min-content;">
+						<div style="display: flex; align-items: center; gap: 10px; flex-direction: row-reverse; width: min-content; image-rendering: pixelated;">
 							<map name="noaimini14">
 								<area href="https://baccyflap.com/noai" shape="rect" coords="21,0,47,30" target="_blank" alt="no ai webring" title="no ai webring" />
 								<area href="https://baccyflap.com/noai/?prv&s=sqd" target="_top" shape="rect" coords="1,13,19,29" alt="previous" title="previous" />
@@ -124,7 +124,7 @@ let layout =
 
 		<footer class="container">
 			<a href="http://www.acasystems.com/en/button-maker/" target="_blank">
-				<img src="/assets/images/buttons/80x15_human_made.png" alt="human made 80x15 button" />
+				<img src="/assets/images/buttons/80x15_human_made.png" alt="human made 80x15 button" style="image-rendering: pixelated;" />
 			</a>
 			<div id="footer-center">
 				<span>🦑</span>

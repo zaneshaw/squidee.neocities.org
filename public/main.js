@@ -75,29 +75,28 @@ let layout =
 			<div id="right">
 				<div class="container">
 					<div>
-						<h2>subdomains</h2>
+						<h2>other sites</h2>
 						<ul class="unstyled-ul">
-							<li><a href="https://paste.squidee.dev/" target="_blank" class="link">paste</a></li>
-							<li>
-								<a href="https://workoutcomposer.squidee.dev/" target="_blank" class="link">workoutcomposer</a>
-							</li>
+							<li><a href="https://squidee.dev/" target="_blank" class="link">squidee.dev</a></li>
+							<li><a href="https://paste.squidee.dev/" target="_blank" class="link">squid paste</a></li>
+							<li><a href="https://workoutcomposer.squidee.dev/" target="_blank" class="link">workout composer</a></li>
 						</ul>
 					</div>
 					<div>
 						<h2>stuff i'm doing</h2>
 						<ul class="unstyled-ul">
-							<li>
-								<a href="https://github.com/zaneshaw/fishcove64/" target="_blank" class="link">fishcove64</a>
-							</li>
-							<li>
-								<a href="https://www.youtube.com/@LiamStreamArchive/" target="_blank" class="link">Liam Stream Archive</a>
-							</li>
+							<li><a href="https://github.com/zaneshaw/fishcove64/" target="_blank" class="link">fishcove64</a></li>
+							<li><a href="https://www.youtube.com/@LiamStreamArchive/" target="_blank" class="link">Liam Stream Archive</a></li>
 						</ul>
 					</div>
 					<div class="button-list">
 						<h2>friends</h2>
-						<a href="https://pincasplace.neocities.org/" target="_blank" title="pinca's place" class="button-88x31"><img src="https://pincasplace.neocities.org/images/badges/88x31_pinca.gif" alt="pinca's place" /></a>
-						<a href="https://mackos.nekoweb.org/" target="_blank" title="mackOS" class="button-88x31"><span style="background-color: hsl(0, 0%, 80%);">mackOS</span></a>
+						<a href="https://pincasplace.neocities.org/" target="_blank" title="pinca's place" class="button-88x31">
+							<img src="https://pincasplace.neocities.org/images/badges/88x31_pinca.gif" alt="pinca's place" />
+						</a>
+						<a href="https://mackos.nekoweb.org/" target="_blank" title="mackOS" class="button-88x31">
+							<span style="background-color: hsl(0, 0%, 80%);">mackOS</span>
+						</a>
 					</div>
 					<div class="button-list">
 						<h2>webrings</h2>
